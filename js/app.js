@@ -736,35 +736,60 @@ function configurarEventosBusqueda() {
         });
     }
 
-    // Búsqueda por Voz (Web Speech API)
+    // Configurar Reconocimiento de Voz separado
+    configurarReconocimientoVoz(buscador, btnVoz, realizarBusqueda);
+}
+
+function configurarReconocimientoVoz(buscador, btnVoz, callbackBusqueda) {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-        let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        let reconocimiento = new SpeechRecognition();
+        // Implementación del Micrófono (Speech Recognition)
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
 
-        reconocimiento.lang = 'es-ES';
-        reconocimiento.continuous = false;
+        recognition.lang = 'es-ES';
+        recognition.continuous = false;
 
-        reconocimiento.onresult = (event) => {
-            let transcripcion = event.results[0][0].transcript;
-            buscador.value = transcripcion;
-            realizarBusqueda();
+        // Métodos y Eventos Clave
+        recognition.onstart = function () {
+            console.log("El sistema empieza a escuchar");
+            btnVoz.classList.add('btn-danger'); // Feedback visual
         };
 
-        reconocimiento.onerror = (event) => {
+        recognition.onspeechend = function () {
+            console.log("El usuario deja de hablar");
+            btnVoz.classList.remove('btn-danger');
+        };
+
+        // Ejemplo de Extracción de Datos
+        recognition.onresult = function (e) {
+            // La transcripción del audio
+            var transcript = e.results[0][0].transcript;
+
+            // El porcentaje de fiabilidad/calidad del reconocimiento
+            var confidence = e.results[0][0].confidence;
+
+            console.log(`Has dicho: ${transcript}. Fiabilidad: ${parseInt(confidence * 100)}%`);
+
+            buscador.value = transcript;
+            callbackBusqueda();
+        };
+
+        recognition.onerror = function (event) {
             console.error("Error reconocimiento voz:", event.error);
+            btnVoz.classList.remove('btn-danger');
         };
 
         btnVoz.addEventListener('click', () => {
-            reconocimiento.start();
-            // Feedback visual pequeño
-            btnVoz.classList.add('btn-danger');
-            setTimeout(() => btnVoz.classList.remove('btn-danger'), 1000);
+            recognition.start(); // Inicia el proceso de escucha
         });
+
     } else {
         btnVoz.disabled = true;
-        btnVoz.title = "Tu navegador no soporta reconocimiento de voz.";
+        btnVoz.title = "Tu navegador no soporta reconocimiento de voz (Firefox no soportado).";
+        console.warn("Speech Recognition API not supported in this browser.");
     }
 }
+
 
 function configurarFiltrosCategoria() {
     let linksCategoria = document.querySelectorAll('.nav-link[data-categoria]');
@@ -832,15 +857,41 @@ function configurarOrdenamiento() {
 // ---------------------------------------------------------
 
 function configurarGeolocalizacion() {
-    // Solo pedimos geo si el usuario quiere o la primera vez
-    // Aquí la inyectamos en el footer como ejemplo simple
-    if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition((pos) => {
-            console.log(`Ubicación detectada: ${pos.coords.latitude}, ${pos.coords.longitude}`);
-            // Podríamos mostrar ofertas locales aquí
-        }, (err) => {
-            console.warn("Geolocalización denegada o error.");
-        });
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        console.warn("La Geolocalización no es soportada por este navegador.");
+    }
+}
+
+function showPosition(position) {
+    // Latitud y longitud en grados decimales
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+
+    console.log(`Ubicación detectada: Latitud: ${lat}, Longitud: ${lon}`);
+
+    // Otras propiedades disponibles en el objeto position.coords:
+    // accuracy: Precisión horizontal en metros
+    // altitude: Altitud en metros
+    // speed: Velocidad si el usuario se mueve
+    // timestamp: Fecha y hora de la detección
+}
+
+function showError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            console.warn("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.warn("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            console.warn("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            console.warn("An unknown error occurred.");
+            break;
     }
 }
 

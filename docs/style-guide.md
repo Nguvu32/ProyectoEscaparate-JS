@@ -17,7 +17,7 @@ Colores inspirados en la naturaleza para transmitir frescura y calidad.
 | `--color-alerta` | Rojo Tomate | `#D32F2F` | Mensajes de error |
 
 ### Muestra Visual
-![Muestra de Colores](assets/style-guide/colores.png)
+![Muestra de Colores](../assets/style-guide/colores.png)
 
 ---
 
@@ -29,7 +29,7 @@ Tipografía moderna y legible para pantallas.
 *   **Cuerpo:** `font-weight: 400`, Color Texto.
 
 ### Jerarquía Tipográfica
-![Jerarquía Tipográfica](assets/style-guide/tipografia.png)
+![Jerarquía Tipográfica](../assets/style-guide/tipografia.png)
 
 ---
 
@@ -47,7 +47,7 @@ Estilos para elementos interactivos.
     *   Texto: Blanco (Bold)
 
 ### Visualización de Botones
-![Estilos de Botones](assets/style-guide/botones.png)
+![Estilos de Botones](../assets/style-guide/botones.png)
 
 ---
 
@@ -60,7 +60,7 @@ El componente principal para mostrar los productos.
 *   **Datos:** Precio en color primario y negrita.
 
 ### Ejemplo de Tarjeta
-![Tarjeta de Producto](assets/style-guide/card_producto.png)
+![Tarjeta de Producto](../assets/style-guide/card_producto.png)
 
 ---
 
@@ -71,7 +71,7 @@ Barra de navegación limpia y funcional.
 *   **Enlaces:** Color texto, cambio a color primario en hover/active.
 
 ### Barra de Navegación
-![Barra de Navegación](assets/style-guide/navbar.png)
+![Barra de Navegación](../assets/style-guide/navbar.png)
 
 ---
 
@@ -81,7 +81,7 @@ Detalles adicionales de la interfaz.
 *   **Carrito Flotante (`.carrito-flotante`):** Botón circular fijo en la esquina inferior derecha.
 
 ### Iconos
-![Elementos Flotantes](assets/style-guide/iconos.png)
+![Elementos Flotantes](../assets/style-guide/iconos.png)
 
 ---
 
@@ -90,8 +90,8 @@ Diseño de las interacciones superpuestas.
 
 ### Modal de Inicio (Login/Registro)
 Formulario limpio con enfoque en la facilidad de acceso.
-![Modal de Inicio](assets/style-guide/modalInicio.png)
+![Modal de Inicio](../assets/style-guide/modalInicio.png)
 
 ### Modal del Carrito
 Vista resumen de la compra con listado de productos y totales.
-![Modal del Carrito](assets/style-guide/modalCarrito.png)
+![Modal del Carrito](../assets/style-guide/modalCarrito.png)

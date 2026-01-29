@@ -19,8 +19,10 @@ Prototipo de un escaparate virtual para la venta directa de productos agrícolas
 ├── data/
 │   └── productos.json      # Base de datos de productos (JSON)
 ├── assets/                 # Imágenes (deben añadirse aquí)
-├── style-guide.md          # Guía de Estilos
-├── mockup_description.md   # Descripción del Wireframe
+├── docs/                   # Documentación del proyecto
+│   ├── style-guide.md      # Guía de Estilos
+│   ├── mockup_description.md # Descripción del Wireframe
+│   └── memoria_descripcion.md # Memoria descriptiva
 └── README.md               # Esta documentación
 ```
 

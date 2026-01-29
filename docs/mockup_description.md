@@ -1,9 +1,15 @@
 # Diseño Web - Mockup / Wireframe
 
 ## Descripción General
-Este documento describe la estructura visual (Wireframe) del sitio web "Del Campo a Casa".
+Este documento describe la estructura visual (Wireframe) del sitio web "Del Campo a Casa", diseñado utilizando la herramienta **Excalidraw**.
 
 ## Estructura de Página (Layout)
+
+### Visualización Desktop
+![Mockup Desktop](../assets/mockups/mockup_desktop.png)
+
+### Visualización Móvil y Tablet
+![Mockup Mobile](../assets/mockups/mockup_mobile.png)
 
 ### 1. Cabecera (Header)
 - **Top Bar (Desktop):**

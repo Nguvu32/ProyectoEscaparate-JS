@@ -777,6 +777,10 @@ function configurarReconocimientoVoz(buscador, btnVoz, callbackBusqueda) {
         recognition.onerror = function (event) {
             console.error("Error reconocimiento voz:", event.error);
             btnVoz.classList.remove('btn-danger');
+
+            if (event.error === 'no-speech') {
+                buscador.value = "No hemos detectado sonido, prueba otra vez";
+            }
         };
 
         btnVoz.addEventListener('click', () => {

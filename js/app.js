@@ -770,8 +770,12 @@ function configurarReconocimientoVoz(buscador, btnVoz, callbackBusqueda) {
 
             console.log(`Has dicho: ${transcript}. Fiabilidad: ${parseInt(confidence * 100)}%`);
 
-            buscador.value = transcript;
-            callbackBusqueda();
+            if (confidence < 0.8) {
+                buscador.value = "No te he entendido bien, repite";
+            } else {
+                buscador.value = transcript;
+                callbackBusqueda();
+            }
         };
 
         recognition.onerror = function (event) {

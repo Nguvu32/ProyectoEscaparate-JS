@@ -1,53 +1,97 @@
-# Guía de Estilos - Escaparate Virtual "Del Campo a Casa"
+# Guía de Estilos Visuales - Escaparate Virtual "Del Campo a Casa"
 
-## 1. Introducción
-Esta guía define los estándares visuales y de diseño para el prototipo de escaparate virtual. El objetivo es transmitir frescura, cercanía y calidad natural.
+Este documento visual documenta los estilos implementados en el proyecto.
 
-## 2. Paleta de Colores
-Utilizamos colores tierra y verdes para evocar naturaleza, con acentos vibrantes para llamadas a la acción.
+---
 
-- **Primario (Verde Campo):** `#2E7D32` (Vegetación, frescura)
-- **Secundario (Tierra):** `#795548` (Tierra, raíces, estabilidad)
-- **Fondo (Crema Suave):** `#FAFAFA` (Limpieza, claridad)
-- **Texto Principal:** `#212121` (Legibilidad)
-- **Acento (Naranja Cítrico):** `#FF9800` (Ofertas, botones de compra)
-- **Alerta (Rojo Tomate):** `#D32F2F` (Errores, avisos importantes)
+## 1. Paleta de Colores
+Colores inspirados en la naturaleza para transmitir frescura y calidad.
 
-## 3. Tipografía
-Se prioriza la legibilidad en pantallas.
+| Variable | Color | Código Hex | Uso Principal |
+| :--- | :--- | :--- | :--- |
+| `--color-primario` | Verde Campo | `#2E7D32` | Encabezados, Botones primarios, Bordes activos |
+| `--color-tierra` | Marrón Tierra | `#795548` | Subtítulos, detalles de agricultores |
+| `--color-fondo` | Crema Suave | `#FAFAFA` | Fondo general de la página |
+| `--color-texto` | Gris Oscuro | `#212121` | Texto principal, enlaces |
+| `--color-acento` | Naranja Cítrico | `#FF9800` | Etiquetas de oferta, llamadas a la acción secundarias |
+| `--color-alerta` | Rojo Tomate | `#D32F2F` | Mensajes de error |
 
-- **Fuente Principal:** 'Inter' o 'Roboto', sans-serif.
-- **Títulos (H1, H2):** Peso 700 (Bold). Color `#2E7D32`.
-- **Cuerpo:** Peso 400 (Regular). Color `#212121`.
-- **Botones:** Peso 600 (Semi-bold). Transformación `uppercase` opcional.
+### Muestra Visual
+![Muestra de Colores](assets/style-guide/colores.png)
 
-## 4. Iconografía
-Uso de iconos vectoriales (SVG) o librerías como FontAwesome/Bootstrap Icons.
-- **Carrito:** Icono de cesta de mimbre o carro estándar.
-- **Usuario:** Silueta simple.
-- **Búsqueda:** Lupa.
+---
 
-## 5. Componentes UI
+## 2. Tipografía
+Tipografía moderna y legible para pantallas.
 
-### Botones
-- **Primario:** Fondo `#2E7D32`, Texto `#FFFFFF`, Bordes redondeados (Border-radius: 8px). Hover: Oscurecer 10%.
-- **Secundario:** Fondo Transparente, Borde `#2E7D32`, Texto `#2E7D32`.
+*   **Fuente Principal:** 'Inter', system-ui, sans-serif.
+*   **Encabezados (H1-H6):** `font-weight: 700`, Color Primario.
+*   **Cuerpo:** `font-weight: 400`, Color Texto.
 
-### Tarjetas de Producto (Cards)
-- **Contenedor:** Fondo blanco, sombra suave (`box-shadow: 0 4px 6px rgba(0,0,0,0.1)`).
-- **Imagen:** Relación de aspecto 4:3, `object-fit: cover`.
-- **Interacción:** Al pasar el ratón (Hover), la tarjeta se eleva (`transform: translateY(-5px)`) y la sombra aumenta.
-- **Overlay:** Botón "Añadir al carrito" aparece o se destaca.
+### Jerarquía Tipográfica
+![Jerarquía Tipográfica](assets/style-guide/tipografia.png)
 
-### Navegación
-- **Barra Superior:** Sticky top. Fondo `#ffffff` con sombra inferior.
-- **Enlaces:** Color `#212121`. Hover: Color `#2E7D32` y subrayado animado.
+---
 
-## 6. Imágenes
-- Fotografías de alta calidad, bien iluminadas, mostrando el producto fresco.
-- Estilo "Macro" o "Bodegón" para resaltar texturas.
+## 3. Botones (Buttons)
+Estilos para elementos interactivos.
 
-## 7. Accesibilidad
-- Contraste suficiente entre texto y fondo (AA/AAA).
-- Etiquetas `aria-label` en botones sin texto (ej. búsqueda por voz).
-- Focus states claramente visibles para navegación por teclado.
+*   **Botón Primario (`.btn-primario`):**
+    *   Fondo: `#2E7D32`
+    *   Texto: Blanco
+    *   Border-radius: `8px`
+    *   Hover: `#1B5E20`
+
+*   **Botón Acento (`.btn-acento`):**
+    *   Fondo: `#FF9800`
+    *   Texto: Blanco (Bold)
+
+### Visualización de Botones
+![Estilos de Botones](assets/style-guide/botones.png)
+
+---
+
+## 4. Tarjetas de Producto (Cards)
+El componente principal para mostrar los productos.
+
+*   **Contenedor:** Fondo blanco, sombra suave (`box-shadow`), bordes redondeados (`12px`).
+*   **Imagen:** Altura fija (`200px`), `object-fit: cover`.
+*   **Interacción:** Efecto de elevación (`translateY`) al pasar el ratón.
+*   **Datos:** Precio en color primario y negrita.
+
+### Ejemplo de Tarjeta
+![Tarjeta de Producto](assets/style-guide/card_producto.png)
+
+---
+
+## 5. Navegación (Navbar)
+Barra de navegación limpia y funcional.
+
+*   **Estilo:** Fondo blanco, sombra sutil.
+*   **Enlaces:** Color texto, cambio a color primario en hover/active.
+
+### Barra de Navegación
+![Barra de Navegación](assets/style-guide/navbar.png)
+
+---
+
+## 6. Iconografía y Elementos Flotantes
+Detalles adicionales de la interfaz.
+
+*   **Carrito Flotante (`.carrito-flotante`):** Botón circular fijo en la esquina inferior derecha.
+
+### Iconos
+![Elementos Flotantes](assets/style-guide/iconos.png)
+
+---
+
+## 7. Modales y Ventanas Emergentes
+Diseño de las interacciones superpuestas.
+
+### Modal de Inicio (Login/Registro)
+Formulario limpio con enfoque en la facilidad de acceso.
+![Modal de Inicio](assets/style-guide/modalInicio.png)
+
+### Modal del Carrito
+Vista resumen de la compra con listado de productos y totales.
+![Modal del Carrito](assets/style-guide/modalCarrito.png)

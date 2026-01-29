@@ -1,0 +1,208 @@
+[
+  {
+    "id": 1,
+    "nombre": "Tomates Raf",
+    "agricultor": "Huerta Tía Juana",
+    "precio": 3.50,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/tomates_raf.webp",
+    "categoria": "Frutas",
+    "descripcion": "Tomates dulces y crujientes, ideales para ensaladas.",
+    "oferta": true
+  },
+  {
+    "id": 2,
+    "nombre": "Naranjas de Mesa",
+    "agricultor": "Finca El Azahar",
+    "precio": 1.20,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/naranjas.webp",
+    "categoria": "Frutas",
+    "descripcion": "Naranjas dulces y con mucho zumo, recién cogidas del árbol.",
+    "oferta": true
+  },
+  {
+    "id": 3,
+    "nombre": "Pimientos Rojos",
+    "agricultor": "AgroSostenible S.L.",
+    "precio": 2.10,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/pimientos_rojos.webp",
+    "categoria": "Verduras",
+    "descripcion": "Pimientos grandes y carnosos, perfectos para asar."
+  },
+  {
+    "id": 4,
+    "nombre": "Patatas Agria",
+    "agricultor": "Cooperativa del Valle",
+    "precio": 0.90,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/patatas.webp",
+    "categoria": "Tubérculos",
+    "descripcion": "La mejor patata para freír, crujiente por fuera y tierna por dentro."
+  },
+  {
+    "id": 5,
+    "nombre": "Fresas de Temporada",
+    "agricultor": "Huertos del Sol",
+    "precio": 4.50,
+    "unidad": "caja 500g",
+    "imagen": "assets/imagenes/fresas.webp",
+    "categoria": "Frutas",
+    "descripcion": "Fresas dulces y aromáticas.",
+    "oferta": true
+  },
+  {
+    "id": 6,
+    "nombre": "Lechuga Iceberg",
+    "agricultor": "Huerta Tía Juana",
+    "precio": 0.80,
+    "unidad": "unidad",
+    "imagen": "assets/imagenes/lechuga.webp",
+    "categoria": "Verduras",
+    "descripcion": "Fresca y crujiente para tus ensaladas diarias."
+  },
+  {
+    "id": 7,
+    "nombre": "Zanahorias Bio",
+    "agricultor": "EcoHuerta Manolo",
+    "precio": 1.10,
+    "unidad": "manojo",
+    "imagen": "assets/imagenes/zanahorias.webp",
+    "categoria": "Verduras",
+    "descripcion": "Zanahorias dulces y llenas de vitaminas, cultivo ecológico."
+  },
+  {
+    "id": 11,
+    "nombre": "Manzanas Golden",
+    "agricultor": "Frutales del Bierzo",
+    "precio": 2.00,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/manzanas.webp",
+    "categoria": "Frutas",
+    "descripcion": "Dulces y crujientes, la fruta diaria perfecta."
+  },
+  {
+    "id": 12,
+    "nombre": "Plátanos de Canarias",
+    "agricultor": "Plataneros Unidos",
+    "precio": 2.50,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/platanos.webp",
+    "categoria": "Frutas",
+    "descripcion": "El sabor inconfundible del plátano canario, dulce y con motitas."
+  },
+  {
+    "id": 13,
+    "nombre": "Espinacas Frescas",
+    "agricultor": "Huerta Tía Juana",
+    "precio": 1.20,
+    "unidad": "manojo",
+    "imagen": "assets/imagenes/espinacas.webp",
+    "categoria": "Verduras",
+    "descripcion": "Hojas verdes y tiernas, ricas en hierro."
+  },
+  {
+    "id": 21,
+    "nombre": "Limones",
+    "agricultor": "Cítricos del Levante",
+    "precio": 1.50,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/limones.webp",
+    "categoria": "Frutas",
+    "descripcion": "Mucho zumo y vitamina C para tus bebidas y platos."
+  },
+  {
+    "id": 24,
+    "nombre": "Aguacates Hass",
+    "agricultor": "Tropicales del Sur",
+    "precio": 5.50,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/aguacates.webp",
+    "categoria": "Frutas",
+    "descripcion": "Cremosos y en su punto justo de maduración.",
+    "oferta": true
+  },
+  {
+    "id": 25,
+    "nombre": "Lentejas Pardinas",
+    "agricultor": "Legumbres del Campo",
+    "precio": 2.80,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/lentejas.webp",
+    "categoria": "Legumbres",
+    "descripcion": "Lenteja pequeña que no necesita remojo previo."
+  },
+  {
+    "id": 26,
+    "nombre": "Garbanzos Pedrosillano",
+    "agricultor": "Legumbres del Campo",
+    "precio": 3.00,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/garbanzos.webp",
+    "categoria": "Legumbres",
+    "descripcion": "Pequeño y mantecoso, ideal para cocidos."
+  },
+  {
+    "id": 28,
+    "nombre": "Calabaza Cacahuete",
+    "agricultor": "EcoHuerta Manolo",
+    "precio": 1.00,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/calabaza.webp",
+    "categoria": "Verduras",
+    "descripcion": "Dulce y cremosa, perfecta para purés y repostería."
+  },
+  {
+    "id": 32,
+    "nombre": "Miel de Flores",
+    "agricultor": "Apicultura La Colmena",
+    "precio": 8.00,
+    "unidad": "tarro 1kg",
+    "imagen": "assets/imagenes/miel.webp",
+    "categoria": "Otros",
+    "descripcion": "Miel pura 100% natural, recolección artesanal."
+  },
+  {
+    "id": 33,
+    "nombre": "Aceite de Oliva VE",
+    "agricultor": "Almazara del Valle",
+    "precio": 45.00,
+    "unidad": "garrafa 5L",
+    "imagen": "assets/imagenes/aceite.webp",
+    "categoria": "Otros",
+    "descripcion": "Oro líquido, prensado en frío.",
+    "oferta": true
+  },
+  {
+    "id": 34,
+    "nombre": "Huevos Camperos",
+    "agricultor": "Granja La Feliz",
+    "precio": 2.50,
+    "unidad": "docena",
+    "imagen": "assets/imagenes/huevos.webp",
+    "categoria": "Otros",
+    "descripcion": "De gallinas criadas en libertad, yema naranja intensa."
+  },
+  {
+    "id": 36,
+    "nombre": "Champiñones",
+    "agricultor": "Fungicultura López",
+    "precio": 3.00,
+    "unidad": "kg",
+    "imagen": "assets/imagenes/champinones.webp",
+    "categoria": "Verduras",
+    "descripcion": "Frescos y blancos, recien cortados."
+  },
+  {
+    "id": 38,
+    "nombre": "Espárragos Verdes",
+    "agricultor": "Huerta Tía Juana",
+    "precio": 4.20,
+    "unidad": "manojo",
+    "imagen": "assets/imagenes/esparragos.webp",
+    "categoria": "Verduras",
+    "descripcion": "Tiernos y sabrosos, ideales a la plancha.",
+    "oferta": true
+  }
+]

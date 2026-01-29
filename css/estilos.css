@@ -1,0 +1,190 @@
+:root {
+    --color-primario: #2E7D32;
+    --color-tierra: #795548;
+    --color-fondo: #FAFAFA;
+    --color-texto: #212121;
+    --color-acento: #FF9800;
+    --color-alerta: #D32F2F;
+    --fuente-principal: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+}
+
+/* Tipografía */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-primario);
+    font-weight: 700;
+}
+
+/* Utilidades */
+.texto-primario {
+    color: var(--color-primario);
+}
+
+.bg-primario {
+    background-color: var(--color-primario) !important;
+}
+
+.btn-primario {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primario:hover {
+    background-color: #1B5E20;
+    /* Un tono más oscuro */
+    color: white;
+}
+
+.btn-acento {
+    background-color: var(--color-acento);
+    color: white;
+    font-weight: bold;
+}
+
+/* Navbar Personalizado */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: white !important;
+}
+
+.nav-link {
+    color: var(--color-texto) !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-primario) !important;
+}
+
+/* Carrusel / Hero */
+#carouselNovedades .carousel-item {
+    height: 400px;
+}
+
+#carouselNovedades img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Tarjetas de Producto */
+.card-producto {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+    overflow: hidden;
+    height: 100%;
+}
+
+.card-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-producto img {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--color-primario);
+    transition: transform 0.5s ease;
+}
+
+.card-producto:hover img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.precio-producto {
+    font-size: 1.25rem;
+    color: var(--color-primario);
+    font-weight: bold;
+}
+
+.agricultor-producto {
+    font-size: 0.85rem;
+    color: var(--color-tierra);
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    background-color: #f1f8e9;
+    border-top: 4px solid var(--color-primario);
+    padding-top: 40px;
+}
+
+footer a {
+    color: var(--color-texto);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--color-primario);
+    text-decoration: underline;
+}
+
+/* Microinteracciones */
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Animaciones */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animacion-entrada {
+    animation: aparecer 0.5s ease-out forwards;
+}
+
+/* Icono Flotante Carrito (Móvil) */
+.carrito-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-acento);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}

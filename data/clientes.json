@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "nombre": "Administrador",
+        "apellidos": "Sistema",
+        "email": "admin@campo.es",
+        "telefono": "000000000",
+        "direccion": "Oficina Central",
+        "poblacion": "Madrid",
+        "provincia": "Madrid",
+        "codigo_postal": "28001",
+        "password": "1234",
+        "rol": "admin"
+    },
+    {
+        "id": 2,
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "email": "juan@email.com",
+        "telefono": "600123456",
+        "direccion": "Calle Mayor 1",
+        "poblacion": "Villanueva",
+        "provincia": "Sevilla",
+        "codigo_postal": "41001",
+        "password": "user1234",
+        "rol": "cliente"
+    }
+]

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Del Campo a Casa - Escaparate Virtual</title>
+    <meta name="description"
+        content="Productos frescos directamente de nuestros agricultores a tu mesa. Sin intermediarios.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/imagenes/favicon.png">
+
+    <!-- Preload LCP Image (WebP) -->
+    <link rel="preload" as="image" href="assets/imagenes/carrusel_verduras.webp" fetchpriority="high">
+
+    <!-- Preload Data -->
+    <link rel="preload" href="data/productos.json" as="fetch" crossorigin>
+
+    <!-- Scripts Propios (Deferred) -->
+    <script src="js/app.js" defer></script>
+
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Iconos Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Estilos Propios -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <!-- Cabecera -->
+    <header class="bg-white border-bottom sticky-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logotipo -->
+            <a href="index.html" class="d-flex align-items-center text-decoration-none text-dark">
+                <img src="assets/imagenes/logo.png" alt="Logo" width="150" height="150" class="me-2">
+            </a>
+
+            <!-- Barra de Búsqueda (Desktop) -->
+            <!-- Barra de Búsqueda (Desktop) -->
+            <div class="d-none d-md-flex flex-grow-1 mx-4 position-relative">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="buscador-global"
+                        placeholder="Buscar productos (ej. tomates)..." aria-label="Buscar productos"
+                        autocomplete="off">
+                    <button class="btn btn-outline-secondary" type="button" id="btn-voz" aria-label="Buscar por voz">
+                        <i class="bi bi-mic"></i>
+                    </button>
+                    <button class="btn btn-primario" type="button" id="btn-buscar">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+                <!-- Resultados Busqueda Dropdown -->
+                <ul id="lista-resultados-busqueda"
+                    class="list-group position-absolute w-100 top-100 start-0 z-3 shadow d-none"
+                    style="max-height: 300px; overflow-y: auto;">
+                    <!-- Se llena con JS -->
+                </ul>
+            </div>
+
+            <!-- Acciones Usuario -->
+            <div class="d-flex align-items-center gap-3">
+                <!-- Seccion No Logueado -->
+                <div id="panel-no-logueado" class="d-flex gap-2">
+                    <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                        Iniciar Sesión
+                    </button>
+                    <button class="btn btn-primario btn-sm" data-bs-toggle="modal" data-bs-target="#modalRegistro">
+                        Registrarse
+                    </button>
+                </div>
+
+                <!-- Seccion Logueado (Oculto por defecto) -->
+                <div id="panel-logueado" class="d-none align-items-center gap-3">
+                    <span class="fw-bold d-none d-lg-block" id="nombre-usuario-display">Usuario</span>
+                    <div class="position-relative" role="button" id="btn-carrito">
+                        <i class="bi bi-cart3 fs-4 texto-primario"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            id="contador-carrito">
+                            0
+                        </span>
+                    </div>
+                    <button class="btn btn-link text-secondary p-0" id="btn-logout" title="Cerrar sesión">
+                        <i class="bi bi-box-arrow-right fs-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Carrusel / Hero -->
+        <section id="seccion-novedades" class="container mt-4 mb-5">
+            <h2 class="mb-3 border-bottom pb-2">Novedades y Promociones</h2>
+            <div id="carouselNovedades" class="carousel slide rounded overflow-hidden shadow" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselNovedades" data-bs-slide-to="0"
+                        class="active"></button>
+                    <button type="button" data-bs-target="#carouselNovedades" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselNovedades" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <!-- Las imágenes serán cargadas o hardcodeadas aquí. Usaremos placeholders por ahora si no hay assets -->
+                    <div class="carousel-item active">
+                        <img src="assets/imagenes/carrusel_verduras.webp" class="d-block w-100" alt="Cesta de verduras"
+                            width="1200" height="600" fetchpriority="high">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Frescura Garantizada</h5>
+                            <p>Directo de la huerta a tu mesa en menos de 24h.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/imagenes/carrusel_agricultor.webp" class="d-block w-100" alt="Agricultor"
+                            width="1200" height="600" loading="lazy">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Apoya al Agricultor Local</h5>
+                            <p>Comercio justo sin intermediarios.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/imagenes/carrusel_frutas.webp" class="d-block w-100" alt="Frutas" width="1200"
+                            height="600" loading="lazy">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Fruta de Temporada</h5>
+                            <p>El mejor sabor natural, sin conservantes.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselNovedades"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselNovedades"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </section>
+        <!-- Navegación sticky -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuNavegacion">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-categoria="Verduras">Verduras</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-categoria="Frutas">Frutas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-categoria="Legumbres">Legumbres</a></li>
+                        <li class="nav-item"><a class="nav-link text-danger" href="#" id="nav-ofertas">Ofertas</a></li>
+                    </ul>
+                    <div class="d-md-none mt-2">
+                        <!-- Búsqueda móvil -->
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar...">
+                            <button class="btn btn-primario"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Catálogo -->
+        <section class="container mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="mb-0">Nuestros Productos</h2>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Ordenar por
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" data-orden="precio-asc">Precio: Menor a Mayor</a></li>
+                        <li><a class="dropdown-item" href="#" data-orden="precio-desc">Precio: Mayor a Menor</a></li>
+                        <li><a class="dropdown-item" href="#" data-orden="reciente">Más recientes</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contenedor Grid de Productos -->
+            <div id="contenedor-productos" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                <!-- Aquí se inyectarán los productos vía JS -->
+                <div class="col text-center py-5">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden justify-content-center">Cargando...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paginación -->
+            <nav aria-label="Navegación de productos" class="mt-5">
+                <ul id="paginacion-productos" class="pagination justify-content-center">
+                    <!-- Los botones se generarán dinámicamente con JS -->
+                </ul>
+            </nav>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase fw-bold text-success">Del Campo a Casa</h5>
+                    <p>
+                        Somos una plataforma que conecta directamente a los pequeños agricultores con los consumidores
+                        finales.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Enlaces</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="aviso-legal.html" class="text-dark">Aviso Legal</a></li>
+                        <li><a href="politica-cookies.html" class="text-dark">Política de Cookies</a></li>
+                        <li><a href="condiciones-uso.html" class="text-dark">Condiciones de Uso</a></li>
+                        <li><a href="licencias.html" class="text-dark">Licencias</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-envelope me-2"></i> info@delcampoacasa.es</li>
+                        <li><i class="bi bi-geo-alt me-2"></i> Calle Huertas, 123</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3 text-white bg-success">
+            Proyecto DIW - 2026
+            <a class="text-white ms-2" href="#">Licencias: CC BY-NC</a>
+        </div>
+    </footer>
+
+    <!-- Modales (Login, Registro, Cookies, Carrito) -->
+    <!-- Modal Login -->
+    <div class="modal fade" id="modalLogin" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-login">
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primario w-100">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Registro -->
+    <div class="modal fade" id="modalRegistro" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Registrarse</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-registro">
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" name="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" name="apellidos" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" name="telefono" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Dirección</label>
+                            <input type="text" class="form-control" name="direccion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Población</label>
+                            <input type="text" class="form-control" name="poblacion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Provincia</label>
+                            <input type="text" class="form-control" name="provincia" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Código Postal</label>
+                            <input type="text" class="form-control" name="codigo_postal" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Repetir Contraseña</label>
+                            <input type="password" class="form-control" name="password2" required>
+                        </div>
+                        <button type="submit" class="btn btn-primario w-100">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Carrito -->
+    <div class="modal fade" id="modalCarrito" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-cart3 me-2"></i> Tu Cesta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Lista de productos en carrito -->
+                    <div id="lista-carrito" class="container-fluid">
+                        <!-- Se llena dinámicamente con JS -->
+                        <div class="text-center py-4 text-muted">
+                            Tu carrito está vacío.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between align-items-center">
+                    <div class="fw-bold fs-5">
+                        Total: <span id="total-carrito" class="text-success">0.00€</span>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Seguir
+                            comprando</button>
+                        <button type="button" id="btn-finalizar-compra" class="btn btn-primario">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detalle Producto -->
+    <div class="modal fade" id="modalDetalleProducto" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detalle-titulo">Nombre del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="" id="detalle-imagen" class="img-fluid rounded shadow-sm" alt="Detalle Producto">
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-muted mb-2"><i class="bi bi-person-badge"></i> <span
+                                    id="detalle-agricultor">Agricultor</span></p>
+                            <h4 class="text-success mb-3" id="detalle-precio">0.00€ / Unidad</h4>
+                            <p id="detalle-descripcion">Descripción detallada del producto.</p>
+
+                            <hr>
+
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-primario btn-lg" id="btn-modal-anadir">
+                                    <i class="bi bi-cart-plus"></i> Añadir al Carrito
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                    Seguir Comprando
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <!-- Modal Éxito Compra (Oculto por defecto, se activa tras volver del resumen) -->
+    <div class="modal fade" id="modalCompraExito" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="bi bi-check-circle-fill me-2"></i> ¡Pedido Confirmado!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center py-5">
+                    <div class="mb-4">
+                        <i class="bi bi-bag-check-fill text-success" style="font-size: 5rem;"></i>
+                    </div>
+                    <h3 class="mb-3">¡Gracias por tu compra!</h3>
+                    <p class="text-muted">Se ha realizado la compra correctamente.</p>
+                    <p class="lead text-dark fw-bold">
+                        Estamos cosechando el producto en 24h lo tendrás en tu puerta, gracias.
+                    </p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success px-4" data-bs-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

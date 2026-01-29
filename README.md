@@ -1,7 +1,27 @@
 # Proyecto Escaparate Virtual - "Del Campo a Casa"
 
-## Descripción
-Prototipo de un escaparate virtual para la venta directa de productos agrícolas del productor al consumidor. Desarrollado con HTML5, CSS3, JavaScript (Vanilla) y Bootstrap 5.
+## Descripción de la Temática
+**"Del Campo a Casa"** es un escaparate virtual diseñado para facilitar la **venta directa de productos agrícolas** (frutas, verduras, hortalizas) desde el productor local hasta el consumidor final. Este modelo de **"Kilómetro 0"** busca fomentar la sostenibilidad, apoyar la economía local y garantizar la frescura de los alimentos.
+
+### Productos Expuestos
+El catálogo se centra en productos de temporada, organizados en categorías principales:
+- **Verduras y Hortalizas:** Tomates, lechugas, patatas, etc.
+- **Frutas:** Cítricos, frutas de hueso, manzanas, etc.
+- **Legumbres y otros:** Productos de despensa básicos.
+
+### Tipo de Usuarios (Target)
+El diseño y la usabilidad del sitio han sido pensados para dos perfiles principales:
+
+1.  **Consumidor Consciente (Usuario Principal):**
+    - Personas valoran la calidad, el origen y la sostenibilidad de los alimentos.
+    - Rango de edad amplio (25-65 años), con conocimientos medios de tecnología.
+    - **Necesidades:** Interfaz clara, fácil navegación, información transparente sobre el origen (agricultor) y proceso de compra sencillo.
+
+2.  **Agricultor/Productor (Proveedor):**
+    - Aunque el prototipo se centra en la vista del cliente, la plataforma conceptualmente permite a los agricultores dar salida a su stock sin intermediarios.
+
+## Ficheros del Proyecto
+Prototipo desarrollado con HTML5, CSS3, JavaScript (Vanilla) y Bootstrap 5.
 
 ## Estructura de Directorios
 

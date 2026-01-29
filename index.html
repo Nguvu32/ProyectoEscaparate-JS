@@ -9,10 +9,13 @@
         content="Productos frescos directamente de nuestros agricultores a tu mesa. Sin intermediarios.">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/imagenes/favicon.png">
+    <link rel="icon" type="image/webp" href="assets/imagenes/favicon.webp">
 
     <!-- Preload LCP Image (WebP) -->
-    <link rel="preload" as="image" href="assets/imagenes/carrusel_verduras.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/imagenes/carrusel_verduras.webp" fetchpriority="high"
+        media="(min-width: 768px)">
+    <link rel="preload" as="image" href="assets/imagenes/carrusel_verduras_mobile.webp" fetchpriority="high"
+        media="(max-width: 767.98px)">
 
     <!-- Preload Data -->
     <link rel="preload" href="data/productos.json" as="fetch" crossorigin>
@@ -42,7 +45,7 @@
         <div class="container d-flex justify-content-between align-items-center">
             <!-- Logotipo -->
             <a href="index.html" class="d-flex align-items-center text-decoration-none text-dark">
-                <img src="assets/imagenes/logo.png" alt="Logo" width="150" height="150" class="me-2">
+                <img src="assets/imagenes/logo.webp" alt="Logo" width="150" height="150" class="me-2">
             </a>
 
             <!-- Barra de Búsqueda (Desktop) -->
@@ -113,8 +116,12 @@
                 <div class="carousel-inner">
                     <!-- Las imágenes serán cargadas o hardcodeadas aquí. Usaremos placeholders por ahora si no hay assets -->
                     <div class="carousel-item active">
-                        <img src="assets/imagenes/carrusel_verduras.webp" class="d-block w-100" alt="Cesta de verduras"
-                            width="1200" height="600" fetchpriority="high">
+                        <picture>
+                            <source media="(max-width: 767.98px)"
+                                srcset="assets/imagenes/carrusel_verduras_mobile.webp">
+                            <img src="assets/imagenes/carrusel_verduras.webp" class="d-block w-100"
+                                alt="Cesta de verduras" width="1200" height="600" fetchpriority="high">
+                        </picture>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Frescura Garantizada</h5>
                             <p>Directo de la huerta a tu mesa en menos de 24h.</p>
@@ -221,8 +228,10 @@
                     <h5 class="text-uppercase">Enlaces</h5>
                     <ul class="list-unstyled mb-0">
                         <li><a href="aviso-legal.html" class="text-dark">Aviso Legal</a></li>
+                        <li><a href="politica-privacidad.html" class="text-dark">Política de Privacidad</a></li>
                         <li><a href="politica-cookies.html" class="text-dark">Política de Cookies</a></li>
                         <li><a href="condiciones-uso.html" class="text-dark">Condiciones de Uso</a></li>
+                        <li><a href="condiciones-venta.html" class="text-dark">Condiciones de Venta</a></li>
                         <li><a href="licencias.html" class="text-dark">Licencias</a></li>
                     </ul>
                 </div>
